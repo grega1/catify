@@ -1,8 +1,7 @@
 
-FilterProps{
-    setCats:(data:Cat[] => void),
-}
-export default function Filter<FilterProps>(){
+import React from "react"
+
+export default function Filter(){
 
 return(
     <div>
