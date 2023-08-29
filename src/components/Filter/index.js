@@ -1,14 +1,23 @@
+import React, { useState } from "react";
 
-import React from "react"
+export default function Filter({ handleClick }) {
+  const [inputValue, setInputValue] = useState("");
 
-export default function Filter(){
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
 
-return(
+  return (
     <div>
-    <input type="text" placeholder="Type your word to find cats"/>
-    <button type="submit">Pesquisar</button>
+      <input
+        type="text"
+        placeholder="Type your word to find cats"
+        value={inputValue}
+        onChange={handleChange}
+      />
+      <button type="submit" onClick={() => handleClick(inputValue)}>
+        Pesquisar
+      </button>
     </div>
-)
-
-
+  );
 }

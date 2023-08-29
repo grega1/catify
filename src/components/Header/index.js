@@ -1,12 +1,12 @@
 import React from "react";
 
-export default function Header() {
+export default function Header({showHomeComponent,showAllCatsComponent}) {
   return (
     <div>
       <h1>Catify</h1>
       <nav>
-        <button>Home</button>
-        <button>AllCats</button>
+        <button onClick={showHomeComponent}>Home</button>
+        <button onClick={showAllCatsComponent}>AllCats</button>
       </nav>
     </div>
   );

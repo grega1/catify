@@ -3,6 +3,7 @@ import React, { createContext, useState } from "react";
 export const CatsContext = createContext("");
 
 export const CatsProvider = (props) => {
+    const [cat,setCat] = useState("")
   const [cats, setCats] = useState([]);
 console.log('cats',cats)
   const [recentViewed, setRecentViewed] = useState([]);
@@ -14,6 +15,8 @@ console.log('cats',cats)
   return (
     <CatsContext.Provider
       value={{
+        cat,
+        setCat,
         cats,
         setCats,
         recentViewed,

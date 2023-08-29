@@ -3,27 +3,22 @@ import Filter from "../../components/Filter";
 import { CatsService } from "../../services/";
 import { CatsContext } from "../../contexts/CatContext";
 export default function Home() {
-//   const { setCats } = useContext(CatsContext);
-  const [catFiltered, setCatFiltered] = useState([]);
-  const [hasCatFiltered, setHasCatFiltered] = useState(false);
-  const [word, setWord] = useState("");
+  const { cat, setCat } = useContext(CatsContext);
 
-
-  const handleClick = (event) => {
-    setWord(event.target.value);
-    if (!hasCatFiltered) {
-        CatsService.getFilteredCats(word).then((results) => {
-          setCatFiltered(results);
-          setHasCatFiltered(true);
-        //   setCats(results);
-        });
-      }
+  const handleClick = (inputValue) => {
+    console.log(inputValue);
+    
+      CatsService.getFilteredCats(inputValue).then((results) => {
+        
+        setCat(results);
+      });
+    
   };
 
   return (
     <div>
       <Filter handleClick={handleClick} />
-      <div></div>
+      {cat ? (<img src={cat} alt="cat" width='150' height={150}/>) : (<h1>Finding cats...</h1>)}
     </div>
   );
 }

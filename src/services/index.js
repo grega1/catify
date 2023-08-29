@@ -13,14 +13,15 @@ export const CatsService = {
   },
 
   async getFilteredCats(word) {
-    const response = await fetch(`${API_URL}/cats/says/${word}`);
+    const response = await fetch(`${API_URL}/cat/says/${word}`);
+    console.log('word',word)
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
-    const data = await response.json();
-    data.results.forEach((e) => {
-      e.length = 0;
-    });
-    return data.results;
+  
+    const blob = await response.blob();
+    const objectURL = URL.createObjectURL(blob);
+    return objectURL;
+
   },
 };

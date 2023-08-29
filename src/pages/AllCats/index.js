@@ -9,7 +9,7 @@ export default function AllCats() {
     CatsService.getCats()
     .then((results) => {
       setCats(results);
-      console.log('Updated cats:', results); // Check if the state was updated correctly
+      console.log('Updated cats:', results);
     })
     .catch((error) => {
       console.error('Error fetching cats:', error);
