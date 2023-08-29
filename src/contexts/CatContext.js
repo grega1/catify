@@ -1,0 +1,27 @@
+import React, { createContext, useState } from "react";
+
+export const CatsContext = createContext("");
+
+export const CatsProvider = (props) => {
+  const [cats, setCats] = useState([]);
+console.log('cats',cats)
+  const [recentViewed, setRecentViewed] = useState([]);
+  const addToRecentViewed = (cat) => {
+    if (!recentViewed.some((e) => e.id === cat.id))
+      setRecentViewed([...recentViewed, cat]);
+  };
+
+  return (
+    <CatsContext.Provider
+      value={{
+        cats,
+        setCats,
+        recentViewed,
+        setRecentViewed,
+        addToRecentViewed,
+      }}
+    >
+      {props.children}
+    </CatsContext.Provider>
+  );
+};
