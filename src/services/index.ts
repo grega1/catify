@@ -1,0 +1,27 @@
+const API_URL = "https://cataas.com/";
+
+export const CatsService = {
+  async getCats() {
+    const response = await fetch(`${API_URL}/cats`);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    data.results.forEach((e) => {
+      e.length = 0;
+    });
+    return data.results;
+  },
+
+  async getFilteredCats(word:string) {
+    const response = await fetch(`${API_URL}/cats/says/${word}`);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const data = await response.json();
+    data.results.forEach((e) => {
+      e.length = 0;
+    });
+    return data.results;
+  },
+};
