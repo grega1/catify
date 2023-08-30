@@ -20,7 +20,7 @@ function App() {
 
   return (
     <CatsProvider>
-      <div className="App">
+      <div className="Wrapper">
         <h1>Hello World!</h1>
         <Header showHomeComponent={showHomeComponent} showAllCatsComponent={showAllCatsComponent}/>
         {showHome && <Home />}
