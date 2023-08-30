@@ -4,6 +4,7 @@ import AllCats from "./pages/AllCats";
 import Home from "./pages/Home";
 import { CatsProvider } from "./contexts/CatContext";
 import { useState } from "react";
+import Footer from "./components/Footer";
 function App() {
   const [showHome, setShowHome] = useState(true);
   const [showAllCats, setShowAllCats] = useState(false);
@@ -21,10 +22,10 @@ function App() {
   return (
     <CatsProvider>
       <div className="Wrapper">
-        <h1>Hello World!</h1>
         <Header showHomeComponent={showHomeComponent} showAllCatsComponent={showAllCatsComponent}/>
         {showHome && <Home />}
         {showAllCats && <AllCats />}
+        <Footer />
       </div>
     </CatsProvider>
   );

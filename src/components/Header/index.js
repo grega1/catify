@@ -1,13 +1,14 @@
 import React from "react";
+import "./index.css"
 
 export default function Header({showHomeComponent,showAllCatsComponent}) {
   return (
-    <div>
+    <header>
       <h1>Catify</h1>
       <nav>
-        <button onClick={showHomeComponent}>Home</button>
-        <button onClick={showAllCatsComponent}>AllCats</button>
+        <button onClick={showHomeComponent}>HOME</button>
+        <button onClick={showAllCatsComponent}>ALL CATS</button>
       </nav>
-    </div>
+    </header>
   );
 }

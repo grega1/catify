@@ -1,0 +1,28 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:2.5rem;
+    width: 30rem;
+    height: 100%;
+}
+.home img{
+    width:30rem;
+    height: 18rem;
+}
+.recent-viewed{
+    align-self:start;
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    width: 100%;
+    height: auto;
+}
+.recent-viewed img{
+    width: 15rem;
+    height: 10rem;
+}
+.recent-viewed h3{
+    text-align: center;
+}
