@@ -8,21 +8,21 @@ export default function Home() {
 
   const handleClick = (inputValue) => {
     console.log(inputValue);
-    
-      CatsService.getFilteredCats(inputValue).then((results) => {
-        
-        setCat(results);
-      });
-    
+
+    CatsService.getFilteredCats(inputValue).then((results) => {
+      setCat(results);
+    });
   };
 
   return (
     <div className="home">
       <Filter handleClick={handleClick} />
-      {cat ? (<img src={cat} alt="cat" width='150' height={150}/>) : (<h1>Finding cats...</h1>)}
-      <div className="recent-viewed">
-      <h2>Recent Viewed</h2>
-      {cat ? (<img src={cat} alt="cat" width='150' height={150}/>) : (<h3>Nothing here...</h3>)}
+      <div className="cat-viewer">
+        {cat ? (
+          <img src={cat} alt="cat" />
+        ) : (
+          <h1>Finding cats...</h1>
+        )}
       </div>
     </div>
   );

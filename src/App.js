@@ -22,11 +22,11 @@ function App() {
   return (
     <CatsProvider>
       <div className="Wrapper">
-        <Header showHomeComponent={showHomeComponent} showAllCatsComponent={showAllCatsComponent}/>
+        <Header showHomeComponent={showHomeComponent} showHome={showHome}showAllCatsComponent={showAllCatsComponent}/>
         {showHome && <Home />}
         {showAllCats && <AllCats />}
         <Footer />
-      </div>
+      </div>  
     </CatsProvider>
   );
 }

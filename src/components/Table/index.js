@@ -4,7 +4,7 @@ import { CatsService } from "../../services";
 import { CatsContext } from "../../contexts/CatContext";
 
 export default function Table({ cats }) {
-  const { cat, setCat, recentViewed, addToRecentViewed } =
+  const { cat, setCat} =
     useContext(CatsContext);
   const [openModalId, setOpenModalId] = useState(null);
   const openModal = (id) => {
@@ -22,11 +22,7 @@ export default function Table({ cats }) {
       .then((results) => {
         console.log(results);
         setCat(results);
-        addToRecentViewed(id);
         openModal(id);
-
-        console.log("Recent viewd" + recentViewed);
-        console.log(cat);
       })
       .catch((error) => {
         console.error("Error fetching cats:", error);
@@ -63,7 +59,7 @@ export default function Table({ cats }) {
       {openModalId !== null && (
         <div className="modal-window" >
           <div>
-            <button title="Close" onClick={closeModal} class="modal-close">
+            <button title="Close" onClick={closeModal} className="modal-close">
               Close
             </button>
             <img src={cat} alt="e" />

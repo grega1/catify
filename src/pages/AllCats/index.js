@@ -20,8 +20,8 @@ export default function AllCats() {
 
   
   return (
-    <div>
+    <>
       <Table cats={cats}  />
-    </div>
+    </>
   );
 }
