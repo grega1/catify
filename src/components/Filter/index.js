@@ -4,7 +4,9 @@ export default function Filter({ handleClick }) {
   const [inputValue, setInputValue] = useState("");
 
   const handleChange = (event) => {
-    setInputValue(event.target.value);
+    const value = event.target.value;
+    const limitedValue = value.replace(/\s/g, "");
+    setInputValue(limitedValue);
   };
 
   return (
@@ -14,6 +16,7 @@ export default function Filter({ handleClick }) {
         placeholder="Type your word to find cats"
         value={inputValue}
         onChange={handleChange}
+        pattern="^[^\s]*$"
       />
       <button type="submit" onClick={() => handleClick(inputValue)}>
         Pesquisar

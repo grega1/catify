@@ -4,7 +4,7 @@ import { CatsContext } from "../../contexts/CatContext";
 import Table from "../../components/Table";
 
 export default function AllCats() {
-  const { cats,setCats } = useContext(CatsContext);
+  const { cat, setCat, cats,setCats,recentViewed,addToRecentViewed, openModal} = useContext(CatsContext);
   useEffect(() => {
     CatsService.getCats()
     .then((results) => {
@@ -16,9 +16,12 @@ export default function AllCats() {
     });
   }, []);
   
+  
+
+  
   return (
     <div>
-      <Table cats={cats} />
+      <Table cats={cats}  />
     </div>
   );
 }

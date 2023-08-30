@@ -24,4 +24,19 @@ export const CatsService = {
     return objectURL;
 
   },
+
+  async getCatById(id) {
+    const response = await fetch(`${API_URL}/cat/${id}`);
+    console.log('id',id)
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+  
+    const blob = await response.blob();
+    const objectURL = URL.createObjectURL(blob);
+    return objectURL;
+
+  }
+  
+
 };

@@ -5,7 +5,6 @@ export const CatsContext = createContext("");
 export const CatsProvider = (props) => {
     const [cat,setCat] = useState("")
   const [cats, setCats] = useState([]);
-console.log('cats',cats)
   const [recentViewed, setRecentViewed] = useState([]);
   const addToRecentViewed = (cat) => {
     if (!recentViewed.some((e) => e.id === cat.id))
