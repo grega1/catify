@@ -7,14 +7,12 @@ export const CatsService = {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
-   console.log(data);
     return data;
   
   },
 
   async getFilteredCats(word) {
     const response = await fetch(`${API_URL}/cat/says/${word}`);
-    console.log('word',word)
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
@@ -27,7 +25,6 @@ export const CatsService = {
 
   async getCatById(id) {
     const response = await fetch(`${API_URL}/cat/${id}`);
-    console.log('id',id)
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }

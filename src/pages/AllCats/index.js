@@ -4,24 +4,16 @@ import { CatsContext } from "../../contexts/CatContext";
 import Table from "../../components/Table";
 
 export default function AllCats() {
-  const {cats,setCats} = useContext(CatsContext);
+  const { cats, setCats } = useContext(CatsContext);
   useEffect(() => {
     CatsService.getCats()
-    .then((results) => {
-      setCats(results);
-      console.log('Updated cats:', results);
-    })
-    .catch((error) => {
-      console.error('Error fetching cats:', error);
-    });
+      .then((results) => {
+        setCats(results);
+      })
+      .catch((error) => {
+        console.error("Error fetching cats:", error);
+      });
   }, []);
-  
-  
 
-  
-  return (
-    <>
-      <Table cats={cats}  />
-    </>
-  );
+  return <Table cats={cats} />;
 }

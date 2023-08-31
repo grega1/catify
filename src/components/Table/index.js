@@ -4,8 +4,7 @@ import { CatsService } from "../../services";
 import { CatsContext } from "../../contexts/CatContext";
 
 export default function Table({ cats }) {
-  const { cat, setCat} =
-    useContext(CatsContext);
+  const { cat, setCat } = useContext(CatsContext);
   const [openModalId, setOpenModalId] = useState(null);
   const openModal = (id) => {
     setOpenModalId(id);
@@ -17,10 +16,8 @@ export default function Table({ cats }) {
 
   const handleClick = (event) => {
     const id = event.target.textContent;
-
     CatsService.getCatById(id)
       .then((results) => {
-        console.log(results);
         setCat(results);
         openModal(id);
       })
@@ -39,25 +36,25 @@ export default function Table({ cats }) {
           </tr>
         </thead>
         <tbody className="table-content">
-          {cats.map((e) => {
+          {cats.map((cat, i) => {
             return (
-              <tr>
+              <tr key={"row" + [i]}>
                 <td>
-                  <button onClick={handleClick}>{e._id}</button>
+                  <button onClick={handleClick}>{cat._id}</button>
                 </td>
                 <td className="tags">
-                  {e.tags.text !== ""
-                    ? e.tags.map((tag) => <span>{tag}</span>)
+                  {cat.tags && cat.tags.length > 0
+                    ? cat.tags.map((tag) => <span key={[i]}>{tag}</span>)
                     : "give me a tag"}
                 </td>
-                <td>{e.owner !== "null" ? e.owner : "disponible"}</td>
+                <td>{cat.owner !== "null" ? cat.owner : "unknown"}</td>
               </tr>
             );
           })}
         </tbody>
       </table>
       {openModalId !== null && (
-        <div className="modal-window" >
+        <div className="modal-window">
           <div>
             <button title="Close" onClick={closeModal} className="modal-close">
               Close

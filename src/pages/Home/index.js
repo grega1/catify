@@ -7,8 +7,6 @@ export default function Home() {
   const { cat, setCat } = useContext(CatsContext);
 
   const handleClick = (inputValue) => {
-    console.log(inputValue);
-
     CatsService.getFilteredCats(inputValue).then((results) => {
       setCat(results);
     });
